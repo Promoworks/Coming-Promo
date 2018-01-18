@@ -8,14 +8,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
 var config = require('./config.js');
 
-
-
-mongoose.connect('mongodb://localhost/loginapp');
-var db = mongoose.connection;
 
 var routes = require('./routes/index');
 
