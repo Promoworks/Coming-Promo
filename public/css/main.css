@@ -1,0 +1,367 @@
+/*CSS Content*/
+
+/*1. Optimized CSS for tablet portrait orientation*/
+/*2. Optimized CSS for tablet landscape orientation*/
+/*3. Optimized CSS for mobile portrait orientation*/
+/*4. Optimized CSS for mobile landscape  orientation*/
+/*5. IE detection and specific CSS*/
+/*6. Basic CSS*/
+/*7. Text CSS*/
+/*8. Animation*/
+
+
+/*Optimized CSS for tablet portrait orientation*/
+
+@media (orientation: portrait) and (min-width: 651px) and (max-width: 1100px) {
+    .main-flex .balloons {
+        margin-right: auto;
+        height: 75vmin;
+    }
+
+    .main-flex .text {
+        margin: 0 5vmin 5vmin auto;
+    }
+
+    .text h1 {
+        font-size: 5.5vmin;
+    }
+}
+
+/*Optimized CSS for tablet landscape orientation*/
+
+@media (orientation: landscape) and (min-width: 901px) and (max-width: 1400px) {
+    .main-flex .text {
+        margin: 20vmin 8vmin 5vmin auto;
+    }
+
+    .text h1 {
+        font-size: 5.3vmin;
+    }
+
+    .text h2 {
+        font-size: 3.5vmin;
+    }
+
+    .text p {
+        font-size: 2.5vmin;
+    }
+}
+
+/*Optimized CSS for mobile portrait orientation*/
+
+@media (orientation: portrait) and (max-width: 650px) {
+    .main-flex .balloons {
+        height: 90vmin;
+    }
+
+    .main-flex .text {
+        margin: 0 5vmin 5vmin auto;
+    }
+
+    .text h1 {
+        font-size: 8vmin;
+    }
+
+    .text h2 {
+        font-size: 5vmin;
+    }
+
+    .text p {
+        font-size: 4vmin;
+    }
+
+    .text .btn-return {
+        font-size: 4vmin;
+    }
+}
+
+/*Optimized CSS for mobile landscape aspect ratio*/
+
+@media (orientation: landscape) and (max-width: 900px) {
+    .text h1 {
+        font-size: 7vmin;
+    }
+
+    .text h2 {
+        font-size: 5vmin;
+    }
+
+    .text p {
+        font-size: 4vmin;
+    }
+
+    .text .btn-return {
+        font-size: 4vmin;
+    }
+}
+
+/*IE detection and specific CSS applying*/
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .balloons .balloon-1 {
+        animation-name: none;
+    }
+
+    .balloons .balloon-1-light {
+        animation-name: none;
+        left: 0.05vmin;
+        top: -9.5vmin;
+    }
+
+    .balloons .balloon-1-light-blur {
+        visibility: hidden;
+        animation-name: none;
+    }
+
+    .balloons .flame {
+        animation-name: none;
+        left: 27.5vmin;
+    }
+
+    .balloons .flame-blur{
+        display: none;
+        animation-name: none;
+    }
+
+    /*Full screen SVG background in IE*/
+
+    body .background {
+        background: url('../pic/bg-night.svg') scroll;
+        min-height: 0;
+        height: 0;
+        padding: 0 0 calc(100% * 9 / 16) 0;
+    }
+}
+
+/*Basic CSS*/
+
+body {
+    margin: 0;
+    background-color: #3949ab;
+    font-family: 'Roboto Slab', serif;
+}
+
+.background {
+    background: url('../pic/bg-night.svg') no-repeat fixed;
+    background-size: 100%;
+    background-origin: content-box;
+    min-height: 100vmin;
+}
+
+.main-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-right: 5vmin;
+}
+
+.balloons {
+    margin-top: 15vmin;
+    height: 80vmin;
+    width: 70vmin;
+    position: relative;
+}
+
+.balloon-1 {
+    background: url("../pic/balloon-1-night.svg") no-repeat 0 0;
+    height: 80vmin;
+    width: 63vmin;
+    position: absolute;
+    z-index: 3;
+
+    animation-name: move-up;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.balloon-1-light {
+    background: url("../pic/balloon-1-light-night.svg") no-repeat 0 0;
+    height: 80vmin;
+    width: 63vmin;
+    position: absolute;
+    left: -0.5vmin;
+    top: -0.7vmin;
+    transform: scale(0.99);
+    z-index: 5;
+
+    animation-name: move-up-light, flicker-flame;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate, normal;
+}
+
+.balloon-1-light-blur {
+    background: url("../pic/balloon-1-light-night.svg") no-repeat 0 0;
+    height: 80vmin;
+    width: 63vmin;
+    position: absolute;
+    left: -0.5vmin;
+    top: -0.7vmin;
+    filter: blur(20px);
+    z-index: 4;
+
+    animation-name: move-up-light, flicker-flame;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate, normal;
+}
+
+.balloon-2 {
+    background: url("../pic/balloon-2-night.svg") no-repeat 0 0;
+    height: 50vmin;
+    width: 50vmin;
+    position: absolute;
+    left: -13vmin;
+    top: 17vmin;
+    z-index: 2;
+}
+
+.balloon-3 {
+    background: url("../pic/balloon-3-night.svg") no-repeat 0;
+    height: 25vmin;
+    width: 25vmin;
+    position: absolute;
+    left: 48vmin;
+    top: 32vmin;
+    z-index: 2;
+}
+
+.flame {
+    background: url("../pic/flame.svg") no-repeat 0;
+    height: 8vmin;
+    width: 8vmin;
+    position: absolute;
+    left: 29.5vmin;
+    top: 62vmin;
+    z-index: 1;
+
+    animation-name: move-up-flame, flicker-flame;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate, normal;
+}
+
+.flame-blur {
+    background: url("../pic/flame.svg") no-repeat 0;
+    height: 16vmin;
+    width: 16vmin;
+    position: absolute;
+    left: 28.1vmin;
+    top: 55vmin;
+    filter: blur(10px);
+    z-index: 0;
+
+    animation-name: move-up-flame-blur, flicker-flame;
+    animation-duration: 5s, 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate, normal;
+}
+
+/*Text CSS*/
+
+h1, h2, p, .btn-return {
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0;
+    font-size: 6vmin;
+    color: #ec407a;
+    text-shadow: 0.5vmin 0.5vmin 0 #1a237e;
+}
+
+h2 {
+    margin: 0;
+    font-size: 4.5vmin;
+    color: white;
+}
+
+p {
+    margin: 0;
+    font-size: 3vmin;
+    color: white;
+}
+
+.btn-return {
+    font-size: 3vmin;
+    font-family: inherit;
+    border: none;
+    margin: 2vmin 0 2vmin 0;
+    text-transform: uppercase;
+    color: white;
+    background-color: #d81b60;
+    padding: 1vmin 5vmin;
+    box-shadow: 1vmin 1vmin #880e4f;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    width: 35vmin;
+    text-align: center;
+}
+
+.btn-return:hover {
+    background-color: #f06292;
+}
+
+.btn-return:active {
+    color: white;
+    background-color: #880e4f;
+    box-shadow: none;
+}
+
+/*Animation*/
+
+@keyframes move-up {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -10vmin;
+    }
+}
+
+@keyframes move-up-light {
+    0% {
+        top: -0.7vmin;
+    }
+    100% {
+        top: -10.7vmin;
+    }
+}
+
+@keyframes move-up-flame {
+    0% {
+        top: 62vmin;
+    }
+    100% {
+        top: 52vmin;
+    }
+}
+
+@keyframes move-up-flame-blur {
+    0% {
+        top: 55vmin;
+    }
+    100% {
+        top: 45vmin;
+    }
+}
+
+@keyframes flicker-flame {
+    0%, 35% {
+        opacity: 1;
+    }
+    45%, 90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
